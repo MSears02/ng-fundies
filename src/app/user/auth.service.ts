@@ -16,7 +16,7 @@ export class AuthService {
     const options = {headers: new HttpHeaders({'Content-Type': 'application/json'})};
     return this.http.post('/api/login', loginInfo, options)
     .pipe(tap(data => {
-      this.currentUser = data.user as IUser;
+      this.currentUser =  <IUser>data['user']
     }))
     .pipe(catchError(err => {
       return of(false);
