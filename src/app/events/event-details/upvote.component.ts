@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input,Output } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
 
@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input,Output } from "@angular/core";
       <div class="well votingWidget">
         <div class="votingButton">
           <i class="glyphicon glyphicon-heart" [style.color]="iconColor"></i>
-          
+
         </div>
         <div class="badge badge-inverse votingCount">
           {{count}}
@@ -19,15 +19,15 @@ import { Component, EventEmitter, Input,Output } from "@angular/core";
   styleUrls: ['./upvote.component.css']
 })
 
-export class UpvoteComponent{
-  @Input() count:number
-  @Input() set voted(val){
-    this.iconColor = val ? 'red' : 'white'
+export class UpvoteComponent {
+  @Input() count: number;
+  @Input() set voted(val) {
+    this.iconColor = val ? 'red' : 'white';
   }
-  @Output() vote = new EventEmitter()
-  iconColor: string
+  @Output() vote = new EventEmitter();
+  iconColor: string;
 
-  onClick(){
-    this.vote.emit({})
+  onClick() {
+    this.vote.emit({});
   }
 }

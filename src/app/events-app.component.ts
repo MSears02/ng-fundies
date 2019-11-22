@@ -6,13 +6,13 @@ import { AuthService } from './user/auth.service';
   template: `
     <nav-bar></nav-bar>
     <router-outlet></router-outlet>
-  `  
+  `
 })
-export class EventsAppComponent{
-  constructor(private auth:AuthService){
+export class EventsAppComponent {
+  constructor(private auth: AuthService) {
 
   }
-  ngOnInit(){
-    this.auth.checkAuthenticationStatus()
+  ngOnInit() {
+    this.auth.checkAuthenticationStatus();
   }
 }

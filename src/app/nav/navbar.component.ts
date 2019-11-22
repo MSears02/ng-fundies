@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core'
-import { AuthService } from '../user/auth.service'
-import { ISession, EventService, IEvent} from '../events/shared/index'
+import {Component, OnInit} from '@angular/core';
+import { AuthService } from '../user/auth.service';
+import { ISession, EventService, IEvent} from '../events/shared/index';
 
 @Component({
-  selector: 'nav-bar',  
+  selector: 'nav-bar',
   templateUrl: './navbar.component.html',
   styles: [`
     .nav.navbar-nav {font-size: 15px;}
@@ -13,26 +13,26 @@ import { ISession, EventService, IEvent} from '../events/shared/index'
   `]
 })
 
-export class NavBarComponent implements OnInit{
-  searchTerm: string =''
-  foundSessions:ISession[]
-  events:IEvent[] 
+export class NavBarComponent implements OnInit {
+  searchTerm = '';
+  foundSessions: ISession[];
+  events: IEvent[];
 
   constructor(
     public auth: AuthService,
-    private eventService: EventService){
+    private eventService: EventService) {
 
   }
-  ngOnInit(){
-    this.eventService.getEvents().subscribe((events:IEvent[]) =>{
-      this.events = events
-    })
+  ngOnInit() {
+    this.eventService.getEvents().subscribe((events: IEvent[]) => {
+      this.events = events;
+    });
   }
 
-  searchSessions(searchTerm){
+  searchSessions(searchTerm) {
     this.eventService.searchSessions(searchTerm).subscribe(
       sessions => {
-        this.foundSessions = sessions;        
-      })
+        this.foundSessions = sessions;
+      });
   }
 }
